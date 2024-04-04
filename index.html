@@ -5,282 +5,80 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de Recibo</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="img/logo.jpg.png" type="image/x-icon">
-
-
-    <title>Emissão de Recibo</title>
-
-
-
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<style>
-    body {
-        background: url(img/white-1.png);
-        background-attachment: fixed;
-        background-size: cover;
-        font-family: Montserrat;
-
-    }
-
-
-    .dados {
-
-        margin: 50px;
-
-
-
-    }
-
-    #cabecalho-dados {
-        width: 400px;
-    }
-
-    h1 {
-        
-        color: rgb(68, 0, 0);
-    }
-
-    #dados {
-        margin-top: 10px;
-    }
-
-
-    input {
-        border: 1px 1px 1px 1px;
-        border-color: rgba(0, 0, 0, 0.31);
-        width: 300px;
-        margin-top: 7px;
-        border-radius: 25px;
-        padding: 10px;
-        font-family: Montserrat;
-
-    }
-
-    #produto2, #produto3, #produto4, #produto5, #produto6 {
-        margin-top: -14px;
-    }
-
-    #descricao {
-        border: 1px 1px;
-        border-color: rgba(0, 0, 0, 0.31);
-        border-radius: 25px;
-        margin-top: 7px;
-        margin-bottom: 11px;
-        padding: 10px;
-        font-family: Montserrat;
-    }
-
-    .btn-gerar,
-    .btn-baixar {
-        width: 250px;
-        height: 45px;
-        padding: 3px;
-        padding-left: 78px;
-        padding-right: 78px;
-        text-align: center;
-        background-color: rgb(57, 0, 0);
-        outline: 0 none;
-        border: 0 none;
-        border-radius: 40px;
-        font-size: 12pt;
-        color: rgb(255, 255, 255);
-        font-weight: 700;
-        cursor: pointer;
-        text-decoration: none;
-    }
-
-    .btn-gerar:hover {
-        background-color: rgba(244, 0, 0, 0.325);
-        border: 1px 1px 1px 1px rgb(64, 64, 64);
-        outline: rgb(62, 62, 62);
-        transition: 0.4s;
-        color: black;
-    }
-
-    .btn-gerar:active {
-        background-color: white;
-        transition: 0s;
-        border: 1px 1px 1px 1px black;
-    }
-
-    .btn-baixar {
-        margin-top: 10px;
-    }
-
-    .btn-baixar:hover {
-        background-color: rgba(244, 0, 0, 0.325);
-        border: 1px 1px 1px 1px rgb(64, 64, 64);
-        outline: rgb(62, 62, 62);
-        transition: 0.4s;
-        color: black;
-    }
-
-    .btn-baixar:active {
-        background-color: white;
-        transition: 0s;
-        border: 1px 1px 1px 1px black;
-    }
-
-
-    .assinatura {
-        font-size: 9pt;
-    }
-
-    .print {
-
-        display: block; 
-    }
-
-    
-
-    @media print {
-        .print {
-            display: block;
-            
-
-
-        }
-
-        .my-container {
-            display: none;
-        }
-
-        .dados {
-            display: none;
-
-
-        }
-    }
-
-    #recibo_cabecalho {
-        max-width: 350px;
-        margin-left: -10px;
-    }
-</style>
-
-
-
 <body>
-
     <div class="my-container">
 
         <div class="dados">
-            <span><img id="cabecalho-dados"   src="img/recibo_cabecalho.png" alt=""></span>
+            <span><img id="cabecalho-dados" src="img/recibo_cabecalho.png" alt=""></span>
             <h1 id="dados">Dados - Recibo</h1>
-            Cliente: <br />
-            <input type="text" id="cliente" /> <br /><br />
 
-            Produto: <br />
-            <input type="text" id="produto" /> <br /><br />
-            <input type="text" id="produto2" /> <br /><br />
-            <input type="text" id="produto3" /> <br /><br />
-            <input type="text" id="produto4" /> <br /><br />
-            <input type="text" id="produto5" /> <br /><br />
-            <input type="text" id="produto6" /> <br /><br />
+            <form action="./recibo.php" method="get">
 
-            Descrição do produto: <br />
-        <textarea name="descricao" id="descricao" rows="10" cols="40" style="resize:none"></textarea>
-            <br>
-            <!--
-            Quantidade: <br />
-            <input type="number" step="0.01" id="quantidade" /> <br /><br />
-            -->
-            Valor: <br />
-            <input type="number" step="0.01" id="valor" /> <br /><br />
+                <label for="cliente"> <h4>Cliente:</h4> </label>
+                <input type="text" id="cliente"/>
+                <h4>Produto: </h4>
+                <div class="inputContainer">
+                    <input type="text" id="produto" class="inputProduto" />
+                </div>
+                <div class="inputContainer">
+                    <input type="text" id="produto2" class="inputProduto" />
+                </div>
+                <div class="inputContainer">
+                    <input type="text" id="produto3" class="inputProduto" />
+                </div>
+                <div class="inputContainer">
+                    <input type="text" id="produto4" class="inputProduto" />
+                </div>
+                <div class="inputContainer">
+                    <input type="text" id="produto5" class="inputProduto" />
+                </div>
+                <div class="inputContainer">
+                    <input type="text" id="produto6" class="inputProduto" />
+                </div>
+                <h4>Descrição do produto:</h4>
+                <textarea name="descricao" id="descricao" rows="10" cols="40" style="resize:none"></textarea>
+                <br>
+                <!--
+                Quantidade: <br />
+                <input type="number" step="0.01" id="quantidade" /> <br /><br />
+                -->
+                <h4>Valor:</h4>
+                <div class="inputContainer">
+                    <input type="number" step="0.01" id="valor" />
+                </div>
+                <div>
+                    <button class="btn-gerar" onclick="gerarRecibo()">Imprimir</button>
+                </div>
 
-            <button class="btn-gerar" onclick="gerarRecibo()">Imprimir</button>
-            <br>
-
-            <!--<button class="btn-baixar" onclick="recuperarValorDiv()">Download</button> <br>-->
-            <button class="btn-baixar" id="btn-baixar" onclick="pdfpdf()">Download</button>
-
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <p>Visualização:</p>
-
-
+                <button class="btn-gerar" type="submit">Download</button>
+                
+            </form>
         </div>
     </div>
 
-    <div class="print" id="print">
-        <img id="recibo_cabecalho" src="img/recibo_cabecalho.png" alt="">
-        <h1>Recibo</h1>
-
-        <p>Recebemos de <span id="recibo_cliente">xxx</span></p>
-
-        <h2>R$ <span id="recibo_valor">0,00</span> </h2>
-        <strong>Produto</strong><br>
-        <p id="recibo_produto"></p>
-        <p id="recibo_produto_2"></p>
-        <p id="recibo_produto_3"></p>
-        <p id="recibo_produto_4"></p>
-        <p id="recibo_produto_5"></p>
-        <p id="recibo_produto_6"></p>
-        <br>
-        <p id="recibo_descricao"></p>
-        <br>
-        <p>Data: <span id="recibo_data"></span></p>
-
-        <br /><br />
-
-        <strong>Emissor</strong><br>
-
-        <p>Congregação da Missão Província do Sul <br>
-            Seminário Vicentino Nossa Senhora das Graças <br>
-            <strong> CNPJ: 76535665000161</strong>
-        </p>
-        <br> <br>
-        <div class="assinatura">
-            Assinatura do responsável
-            <br><br><br>
-            ______________________________________________________________
-        </div>
-
-    </div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"
-        integrity="sha512-pZmE8nx/gdufIRZ9DdgsipK4ocMbdq6zU2epbECb4/iwu9bHfN3aDYmOiVNC8SHk90uWi03o1ziB6JEd6/3VQA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-
-    <script>
-        function pdfpdf() {
-            const elementx = document.getElementById('print');
-            console.log('log1');
-            console.log(elementx);
-
-            const optionsx = {
-                margin: 1.5,
-                
-                filename: 'recibo.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            html2pdf().from(elementx).set(optionsx).save();
-        }
-    </script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="pdf.js"></script>
 
 
     <script>
-
         function gerarRecibo() {
             document.getElementById('recibo_cliente').innerHTML = document.getElementById('cliente').value;
 
             document.getElementById('recibo_produto').innerHTML = document.getElementById('produto').value;
-            
+
             document.getElementById('recibo_produto_2').innerHTML = document.getElementById('produto2').value;
 
             document.getElementById('recibo_produto_3').innerHTML = document.getElementById('produto3').value;
@@ -292,7 +90,6 @@
             document.getElementById('recibo_produto_6').innerHTML = document.getElementById('produto6').value;
 
             document.getElementById('recibo_descricao').innerHTML = document.getElementById('descricao').value;
-            
 
             document.getElementById('recibo_valor').innerHTML = parseFloat(document.getElementById('valor').value).toLocaleString('pt-br', { minimumFractionDigits: 2 });
 
@@ -313,14 +110,6 @@
 
         }
 
-
-
-
-
-
-
-
-
         function gerarPdf() {
 
             var doc = new jsPDF();
@@ -329,10 +118,6 @@
 
         }
 
-
-
-
-
         function recuperarValorDiv() {
             // Recuperar a DIV "conteudo" o texto
             var conteudoRecuperado = document.getElementsByClassName("print")[0].innerText;
@@ -340,10 +125,6 @@
             // Imprimir na tela, mas o conteúdo que está dentro da variável "conteudoRecuperado" pode ser utilizado para qualquer outra funcionalidade
             document.write(conteudoRecuperado);
             document.pictureInPictureElement(conteudoRecuperado);
-
-
-
-
         }
         // Chamar a função quando carregar a página
         //recuperarValorDiv();

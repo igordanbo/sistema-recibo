@@ -1,0 +1,122 @@
+body {
+    background: url(img/white-1.png);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Montserrat;
+
+}
+
+
+.inputContainer{
+    margin-bottom: 1em;
+}
+
+.dados {
+    margin: 50px;
+}
+
+#cabecalho-dados {
+    width: 400px;
+}
+
+h1 {
+    color: rgb(68, 0, 0);
+}
+
+#dados {
+    margin-top: 10px;
+}
+
+
+input {
+    border: 1px 1px 1px 1px;
+    border-color: rgba(0, 0, 0, 0.31);
+    width: 300px;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: Montserrat;
+}
+
+#descricao {
+    border: 1px 1px;
+    border-color: rgba(0, 0, 0, 0.31);
+    border-radius: 25px;
+    padding: 10px;
+    font-family: Montserrat;
+}
+
+.btn-gerar,
+.btn-baixar {
+    width: 250px;
+    height: 45px;
+    padding: 3px;
+    padding-left: 78px;
+    padding-right: 78px;
+    text-align: center;
+    background-color: rgb(57, 0, 0);
+    outline: 0 none;
+    border: 0 none;
+    border-radius: 40px;
+    font-size: 12pt;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-gerar:hover {
+    background-color: rgba(244, 0, 0, 0.325);
+    border: 1px 1px 1px 1px rgb(64, 64, 64);
+    outline: rgb(62, 62, 62);
+    transition: 0.4s;
+    color: black;
+}
+
+.btn-gerar:active {
+    background-color: white;
+    transition: 0s;
+    border: 1px 1px 1px 1px black;
+}
+
+.btn-baixar {
+    margin-top: 10px;
+}
+
+.btn-baixar:hover {
+    background-color: rgba(244, 0, 0, 0.325);
+    border: 1px 1px 1px 1px rgb(64, 64, 64);
+    outline: rgb(62, 62, 62);
+    transition: 0.4s;
+    color: black;
+}
+
+.btn-baixar:active {
+    background-color: white;
+    transition: 0s;
+    border: 1px 1px 1px 1px black;
+}
+
+
+.assinatura {
+    font-size: 9pt;
+}
+
+
+@media print {
+    .print {
+        display: block;
+        
+
+
+    }
+
+    .my-container {
+        display: none;
+    }
+
+    .dados {
+        display: none;
+
+
+    }
+}
