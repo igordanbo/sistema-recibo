@@ -5,18 +5,20 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emissão de Recibo</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="img/logo.jpg.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+
+
+    <title>Emissão de Recibo</title>
+
+
+
+
 </head>
 
-<<<<<<< Updated upstream
-=======
 <style>
     body {
         background: url(img/white-1.png);
@@ -162,17 +164,13 @@
 
 
 
->>>>>>> Stashed changes
 <body>
+
     <div class="my-container">
 
         <div class="dados">
-            <span><img id="cabecalho-dados" src="img/recibo_cabecalho.png" alt=""></span>
+            <span><img id="cabecalho-dados"   src="img/recibo_cabecalho.png" alt=""></span>
             <h1 id="dados">Dados - Recibo</h1>
-<<<<<<< Updated upstream
-
-            <form action="./recibo.php" method="get">
-=======
             Cliente: <br />
             <input type="text" id="cliente" /> <br /><br />
             CNPJ: <br />
@@ -206,53 +204,11 @@
             <button class="btn-baixar" id="btn-baixar" onclick="pdfpdf()">Download</button>
             -->
             
->>>>>>> Stashed changes
 
-                <label for="cliente"> <h4>Cliente:</h4> </label>
-                <input type="text" id="cliente"/>
-                <h4>Produto: </h4>
-                <div class="inputContainer">
-                    <input type="text" id="produto" class="inputProduto" />
-                </div>
-                <div class="inputContainer">
-                    <input type="text" id="produto2" class="inputProduto" />
-                </div>
-                <div class="inputContainer">
-                    <input type="text" id="produto3" class="inputProduto" />
-                </div>
-                <div class="inputContainer">
-                    <input type="text" id="produto4" class="inputProduto" />
-                </div>
-                <div class="inputContainer">
-                    <input type="text" id="produto5" class="inputProduto" />
-                </div>
-                <div class="inputContainer">
-                    <input type="text" id="produto6" class="inputProduto" />
-                </div>
-                <h4>Descrição do produto:</h4>
-                <textarea name="descricao" id="descricao" rows="10" cols="40" style="resize:none"></textarea>
-                <br>
-                <!--
-                Quantidade: <br />
-                <input type="number" step="0.01" id="quantidade" /> <br /><br />
-                -->
-                <h4>Valor:</h4>
-                <div class="inputContainer">
-                    <input type="number" step="0.01" id="valor" />
-                </div>
-                <div>
-                    <button class="btn-gerar" onclick="gerarRecibo()">Imprimir</button>
-                </div>
 
-                <button class="btn-gerar" type="submit">Download</button>
-                
-            </form>
         </div>
     </div>
 
-<<<<<<< Updated upstream
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
-=======
     <div class="print" id="print">
         <img id="recibo_cabecalho" src="img/recibo_cabecalho.png" alt="">
         <h1>Recibo</h1>
@@ -295,21 +251,41 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
->>>>>>> Stashed changes
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
         integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="pdf.js"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        function pdfpdf() {
+            const elementx = document.getElementById('print');
+            console.log('log1');
+            console.log(elementx);
+
+            const optionsx = {
+                margin: 1.5,
+                
+                filename: 'recibo.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().from(elementx).set(optionsx).save();
+        }
+    </script>
 
 
     <script>
+
         function gerarRecibo() {
+            
             document.getElementById('recibo_cliente').innerHTML = document.getElementById('cliente').value;
 
             document.getElementById('recibo_cnpj').innerHTML = document.getElementById('cnpj').value;
 
             document.getElementById('recibo_produto').innerHTML = document.getElementById('produto').value;
-
+            
             document.getElementById('recibo_produto_2').innerHTML = document.getElementById('produto2').value;
 
             document.getElementById('recibo_produto_3').innerHTML = document.getElementById('produto3').value;
@@ -321,12 +297,9 @@
             document.getElementById('recibo_produto_6').innerHTML = document.getElementById('produto6').value;
 
             document.getElementById('recibo_descricao').innerHTML = document.getElementById('descricao').value;
+            
 
             document.getElementById('recibo_valor').innerHTML = parseFloat(document.getElementById('valor').value).toLocaleString('pt-br', { minimumFractionDigits: 2 });
-
-            /*
-            document.getElementById('recibo_quantidade').innerHTML = parseFloat(document.getElementById('quantidade').value).toLocaleString('pt-br', { minimumFractionDigits: 0 });
-            */
 
             ('pt-br', { minimumFractionDigits: 2 });
             document.getElementById('recibo_data').innerHTML = dataAtual();
@@ -341,24 +314,7 @@
 
         }
 
-        function gerarPdf() {
 
-            var doc = new jsPDF();
-            doc.fromHTML(print);
-            doc.save("Recibo.pdf");
-
-        }
-
-        function recuperarValorDiv() {
-            // Recuperar a DIV "conteudo" o texto
-            var conteudoRecuperado = document.getElementsByClassName("print")[0].innerText;
-
-            // Imprimir na tela, mas o conteúdo que está dentro da variável "conteudoRecuperado" pode ser utilizado para qualquer outra funcionalidade
-            document.write(conteudoRecuperado);
-            document.pictureInPictureElement(conteudoRecuperado);
-        }
-        // Chamar a função quando carregar a página
-        //recuperarValorDiv();
 
     </script>
 
