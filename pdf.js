@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 function downloadPDF() {
+=======
+const element = document.getElementById('print');
+console.log('log1');
+>>>>>>> Stashed changes
 
     console.log('Entrou aqui');
 
+<<<<<<< Updated upstream
     //Acessando a página reciboPDF
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'reciboPDF.html', true);
@@ -36,4 +42,9 @@ function downloadPDF() {
     //Conteúdo PDF
     //const content = document.getElementById("print");
 }
+=======
+document.getElementById("btn-baixar").click(function(){
+    html2pdf().set(options).from(element).save();
+});
+>>>>>>> Stashed changes
 
